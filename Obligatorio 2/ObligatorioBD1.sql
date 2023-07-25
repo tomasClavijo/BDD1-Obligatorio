@@ -61,10 +61,10 @@ AND V.NOMBREVACUNATORIO NOT IN (SELECT DISTINCT V.NOMBREVACUNATORIO
                                 AND S.IDVACUNA = T.IDVACUNA
                                 AND T.CODIGO <> 'PFZ');
 
--- Se puede evitar el "Intersect" colocando todo en un mismo Select, pero el tiempo de duración es considerablemte mayor.
+-- Se puede evitar el "Intersect" colocando todo en un mismo Select, pero el tiempo de duraciÃ³n es considerablemte mayor.
 
 -- Ejercicio 3)
--- Obtener el nombre, fecha de nacimiento y localidad de las personas que se anotaron con mayor antelación dentro de las solicitudes realizadas mediante agenda web. 
+-- Obtener el nombre, fecha de nacimiento y localidad de las personas que se anotaron con mayor antelaciÃ³n dentro de las solicitudes realizadas mediante agenda web. 
 -- Considerar solo solicitudes no canceladas de personas a las que les corresponde la vacuna Sinovac.
 
 SELECT P.NOMBRE, P.FECHANAC, L.LOCALIDAD
@@ -79,7 +79,7 @@ AND S.FECHA IN (SELECT MIN(S.FECHA)
                 WHERE S.VIASOLICITUD = 'Web'); 
                 
 -- Ejercicio 4
--- Obtener el nombre de los vacunatorios para los cuales existen solicitudes canceladas y que dichas solicitudes hayan sido realizadas por más de una vía de agenda. Considerar los
+-- Obtener el nombre de los vacunatorios para los cuales existen solicitudes canceladas y que dichas solicitudes hayan sido realizadas por mÃ¡s de una vÃ­a de agenda. Considerar los
 --vacunatorios de Montevideo y las cancelaciones durante la primera quincena de mayo de 2021.
 
 SELECT DISTINCT V.NOMBREVACUNATORIO
@@ -128,7 +128,7 @@ AND S.ESTADOSOL = 'Cancelada'
 AND S.FECHAAGENDA >= TO_DATE('01/05/2021', 'DD/MM/YYYY')
 AND S.FECHAAGENDA <= TO_DATE('15/05/2021', 'DD/MM/YYYY')
 AND L.LOCALIDAD = 'Montevideo'
-AND S.VIASOLICITUD = 'Teléfono'
+AND S.VIASOLICITUD = 'TelÃ©fono'
 AND V.NOMBREVACUNATORIO IN (SELECT V.NOMBREVACUNATORIO
                             FROM VACUNATORIO V, SOLICITUD S, LOCALIDAD L
                             WHERE V.CODLOC = L.CODLOC
@@ -137,7 +137,7 @@ AND V.NOMBREVACUNATORIO IN (SELECT V.NOMBREVACUNATORIO
                             AND S.FECHAAGENDA >= TO_DATE('01/05/2021', 'DD/MM/YYYY')
                             AND S.FECHAAGENDA <= TO_DATE('15/05/2021', 'DD/MM/YYYY')
                             AND L.LOCALIDAD = 'Montevideo'
-                            AND S.VIASOLICITUD <> 'Teléfono');
+                            AND S.VIASOLICITUD <> 'TelÃ©fono');
                             
 -- Ejercicio 5
 -- Obtener las localidades que tengan a todos los ciudadanos que hayan solicitado vacunarse y cuya fecha de nacimiento sea entre el 01/01/1991 y el 31/12/1996 con estado de solicitud finalizada.
@@ -172,8 +172,8 @@ SELECT distinct L.CODLOC, L.LOCALIDAD
 
 
 -- Ejercicio 6
--- Mostrar los datos de las personas y el estado de sus solicitudes. Además, para las solicitudes en estado Agendada o Finalizada, mostrar la fecha de agenda. 
--- Para aquellas solicitudes pendientes mostrar el texto “Pendiente de agenda”. No incluir aquellas solicitudes que han sido canceladas.
+-- Mostrar los datos de las personas y el estado de sus solicitudes. AdemÃ¡s, para las solicitudes en estado Agendada o Finalizada, mostrar la fecha de agenda. 
+-- Para aquellas solicitudes pendientes mostrar el texto Â“Pendiente de agendaÂ”. No incluir aquellas solicitudes que han sido canceladas.
 
 SELECT P.*, S.ESTADOSOL, NVL(CAST(S.FECHAAGENDA AS VARCHAR(10)), 'Pendiente de agenda') AS FECHAAGENDA
 FROM PERSONA P, SOLICITUD S
@@ -181,8 +181,8 @@ WHERE S.CI = P.CI
 AND S.ESTADOSOL <> 'Cancelada';
 
 -- Ejercicio 7
--- Obtener para cada localidad la cantidad de solicitudes por cada vía de solicitud. Tener en cuenta solo las localidades que tienen la menor cantidad de tipos de vacunas diferentes. 
--- Ordenar el resultado alfabéticamente por nombre de localidad y por cantidad de solicitudes ascendente.
+-- Obtener para cada localidad la cantidad de solicitudes por cada vÃ­a de solicitud. Tener en cuenta solo las localidades que tienen la menor cantidad de tipos de vacunas diferentes. 
+-- Ordenar el resultado alfabÃ©ticamente por nombre de localidad y por cantidad de solicitudes ascendente.
 
 SELECT L.LOCALIDAD, S.VIASOLICITUD, COUNT(S.VIASOLICITUD)
 FROM SOLICITUD S, LOCALIDAD L, VACUNATORIO V
@@ -199,8 +199,8 @@ GROUP BY L.LOCALIDAD, S.VIASOLICITUD
 ORDER BY L.LOCALIDAD;
 
 -- Ejercicio 8
--- Obtener las localidades que tengan la mayor cantidad de personas vacunadas. Se entiende que las personas que recibieron la dosis son aquellas cuya solicitud está finalizada. 
--- Considerar solo las localidades que tienen más de 10.000 habitantes
+-- Obtener las localidades que tengan la mayor cantidad de personas vacunadas. Se entiende que las personas que recibieron la dosis son aquellas cuya solicitud estÃ¡ finalizada. 
+-- Considerar solo las localidades que tienen mÃ¡s de 10.000 habitantes
 
 SELECT V.LOCALIDAD
 FROM SOLICITUD S, VACUNATORIO V, LOCALIDAD L
@@ -235,8 +235,8 @@ FETCH NEXT 1 ROWS WITH TIES);
 
 
 -- Ejercicio 10
--- Obtener para cada tipo de vacuna la cantidad total de solicitudes por vía de solicitud. Obtener el porcentaje que representan estas cantidades sobre el total general de solicitudes. 
--- Además, obtener el nombre del vacunatorio donde se realizaron la mayor cantidad de solicitudes del tipo de vacuna asociado.
+-- Obtener para cada tipo de vacuna la cantidad total de solicitudes por vÃ­a de solicitud. Obtener el porcentaje que representan estas cantidades sobre el total general de solicitudes. 
+-- AdemÃ¡s, obtener el nombre del vacunatorio donde se realizaron la mayor cantidad de solicitudes del tipo de vacuna asociado.
 
 select tv.codigo, s.viasolicitud, count(*) CantSol, round(100*(count(*) / sum(count(*)) over ()), 1) || '%' PrcSol, v.nombrevacunatorio from Solicitud s
 join Tipovacuna tv on tv.idvacuna = s.idvacuna
