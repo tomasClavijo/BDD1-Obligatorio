@@ -1,0 +1,349 @@
+/* INSERTS */
+
+/* INSERTS EJERCICIO 3 */
+/*
+    Obtener el nombre, fecha de nacimiento y localidad de las personas que se anotaron con
+    mayor antelación dentro de las solicitudes realizadas mediante agenda web. Considerar solo
+    solicitudes no canceladas de personas a las que les corresponde la vacuna Sinovac.
+*/
+
+INSERT INTO localidad VALUES (1,'Montevideo');
+INSERT INTO localidad VALUES (2,'Cerro Largo');
+INSERT INTO localidad VALUES (3,'Canelones');
+INSERT INTO localidad VALUES (4,'Maldonado');
+INSERT INTO localidad VALUES (5,'Rocha');
+
+INSERT INTO tipovacuna VALUES (1010, 'PFZ');
+INSERT INTO tipovacuna VALUES (1011, 'ASZ');
+INSERT INTO tipovacuna VALUES (1012, 'SVC');
+
+INSERT INTO vacunatorio VALUES (1, 'Antel Arena', 1);
+INSERT INTO vacunatorio VALUES (2, 'Medica Uruguaya 1', 2);
+INSERT INTO vacunatorio VALUES (3, 'Círculo Católico', 3);
+INSERT INTO vacunatorio VALUES (4, 'Casmu', 4);
+INSERT INTO vacunatorio VALUES (5, 'Hospital de Clínicas', 5);
+INSERT INTO vacunatorio VALUES (6, 'Medica Uruguaya 2', 5);
+INSERT INTO vacunatorio VALUES (7, 'Medica Uruguaya 3', 3);
+INSERT INTO vacunatorio VALUES (8, 'Comeca', 3);
+
+INSERT INTO vacunatoriovacuna VALUES (1010, 1);
+INSERT INTO vacunatoriovacuna VALUES (1011, 1);
+INSERT INTO vacunatoriovacuna VALUES (1010, 2);
+INSERT INTO vacunatoriovacuna VALUES (1012, 2);
+INSERT INTO vacunatoriovacuna VALUES (1011, 3);
+INSERT INTO vacunatoriovacuna VALUES (1010, 3);
+INSERT INTO vacunatoriovacuna VALUES (1010, 4);
+INSERT INTO vacunatoriovacuna VALUES (1011, 4);
+INSERT INTO vacunatoriovacuna VALUES (1012, 5);
+INSERT INTO vacunatoriovacuna VALUES (1011, 6);
+INSERT INTO vacunatoriovacuna VALUES (1012, 7);
+INSERT INTO vacunatoriovacuna VALUES (1010, 8);
+INSERT INTO vacunatoriovacuna VALUES (1011, 8);
+INSERT INTO vacunatoriovacuna VALUES (1012, 8);
+
+INSERT INTO persona VALUES (55771781, 1, 'Alberto', '29/11/2000', 091456223, 'alberto@gmail.com');
+INSERT INTO persona VALUES (65307687, 2, 'Carlos', '04/12/1995', 099214527, 'calor@gmail.com');
+INSERT INTO persona VALUES (56703808, 3, 'Agustina', '25/07/1970', 092178428, 'agustina@gmail.com');
+INSERT INTO persona VALUES (29760449, 4, 'Federico', '01/01/1985', 099214578, 'federico@gmail.com');
+INSERT INTO persona VALUES (34399245, 1, 'Amaia', '06/04/1975', 091654223, 'Amaia@gmail.com');
+INSERT INTO persona VALUES (20074417, 2, 'Bianca', '27/01/1980', 093456527, 'Bianca@gmail.com');
+INSERT INTO persona VALUES (55968605, 3, 'Jairo', '07/05/1971', 092112985, 'Jairo@gmail.com');
+INSERT INTO persona VALUES (59474236, 4, 'Evaristo', '17/09/1989', 091588598, 'Evaristo@gmail.com');
+INSERT INTO persona VALUES (36445602, 5, 'Carmen', '03/11/1991', 091123223, 'Carmen@gmail.com');
+INSERT INTO persona VALUES (8228759, 5, 'Neus', '15/03/1996', 099789654, 'Neus@gmail.com');
+INSERT INTO persona VALUES (18608812, 4, 'Mariam', '16/04/2001', 092103428, 'Mariam@gmail.com');
+INSERT INTO persona VALUES (74898920, 3, 'June', '04/10/1975', 099216098, 'June@gmail.com');
+INSERT INTO persona VALUES (3596060, 2, 'Jeronima', '28/09/1989', 091608223, 'Jeronima@gmail.com');
+INSERT INTO persona VALUES (10510738, 1, 'Rubén', '11/10/2001', 099999527, 'Rubén@gmail.com');
+INSERT INTO persona VALUES (36698879, 3, 'Xabier', '18/01/2001', 099214389, 'Xabier@gmail.com');
+
+INSERT INTO solicitud VALUES (1, '03-12-2020', 55771781, 'Agendada', 1, 1010, 'Whatsapp', '23/12/2020');
+INSERT INTO solicitud VALUES (2, '05-03-2021', 65307687, 'Agendada', 1, 1011, 'Whatsapp', '25/03/2021');
+INSERT INTO solicitud VALUES (3, '20-11-2020', 56703808, 'Agendada', 2, 1010, 'Web', '10/12/2020');
+INSERT INTO solicitud VALUES (4, '30-05-2020', 29760449, 'Agendada', 2, 1012, 'Whatsapp', '20/06/2020');
+INSERT INTO solicitud VALUES (5, '21-12-2020', 34399245, 'Agendada', 3, 1011, 'Web', '05/01/2021');
+INSERT INTO solicitud VALUES (6, '04-11-2020', 20074417, 'Cancelada', 3, 1011, 'Telefonica', '24/11/2020');
+INSERT INTO solicitud VALUES (7, '10-07-2020', 55968605, 'Cancelada', 4, 1011, 'Web', '01/08/2020');
+INSERT INTO solicitud VALUES (8, '30-05-2020', 59474236, 'Cancelada', 4, 1010, 'Whatsapp', '15/06/2020');
+INSERT INTO solicitud VALUES (9, '30-05-2020', 36445602, 'Cancelada', 5, 1012, 'Web', '16/06/2020');
+INSERT INTO solicitud VALUES (10, '12-06-2021', 8228759, 'Cancelada', 5, 1012, 'Telefonica', '26/06/2021');
+INSERT INTO solicitud VALUES (11, '29-03-2021', 18608812, 'Pendiente', 6, 1011, 'Web', NULL);
+INSERT INTO solicitud VALUES (12, '08-08-2020', 74898920, 'Pendiente', 6, 1011, 'Whatsapp', NULL);
+INSERT INTO solicitud VALUES (13, '24-11-2020', 3596060, 'Finalizada', 7, 1012, 'Web', '12/12/2020');
+INSERT INTO solicitud VALUES (14, '30-05-2020', 10510738, 'Finalizada', 7, 1012, 'Telefonica', '14/06/2020');
+INSERT INTO solicitud VALUES (15, '17-08-2020', 36698879, 'Finalizada', 8, 1011, 'Web', '29/08/2020');
+
+
+/* INSERTS EJERCICIO 8 */
+/*
+    Obtener las localidades que tengan la mayor cantidad de personas vacunadas. Se entiende
+    que las personas que recibieron la dosis son aquellas cuya solicitud está finalizada.
+    Considerar solo las localidades que tienen más de 10.000 habitantes.
+*/
+
+INSERT INTO localidad VALUES (6,'Colonia');
+INSERT INTO localidad VALUES (7,'Artigas');
+INSERT INTO localidad VALUES (8,'Tacuarembó');
+INSERT INTO localidad VALUES (9,'Salto');
+INSERT INTO localidad VALUES (10,'Paysandú');
+
+/* YA INSERTADAS
+INSERT INTO tipovacuna VALUES (1010, 'PFZ');
+INSERT INTO tipovacuna VALUES (1011, 'ASZ');
+INSERT INTO tipovacuna VALUES (1012, 'SVC');
+*/
+
+INSERT INTO vacunatorio VALUES (9, 'Hospital Español', 6);
+INSERT INTO vacunatorio VALUES (10, 'Hospital Italiano', 6);
+INSERT INTO vacunatorio VALUES (11, 'Hospital Saint Bois', 7);
+INSERT INTO vacunatorio VALUES (12, 'Hospital de Clínicas 2', 8);
+INSERT INTO vacunatorio VALUES (13, 'Sanatorio Médico Villa Carmen', 9);
+INSERT INTO vacunatorio VALUES (14, 'Medica Uruguaya 4', 10);
+
+INSERT INTO vacunatoriovacuna VALUES (1010, 9);
+INSERT INTO vacunatoriovacuna VALUES (1011, 9);
+INSERT INTO vacunatoriovacuna VALUES (1012, 9);
+INSERT INTO vacunatoriovacuna VALUES (1011, 10);
+INSERT INTO vacunatoriovacuna VALUES (1012, 10);
+INSERT INTO vacunatoriovacuna VALUES (1010, 11);
+INSERT INTO vacunatoriovacuna VALUES (1010, 12);
+INSERT INTO vacunatoriovacuna VALUES (1011, 12);
+INSERT INTO vacunatoriovacuna VALUES (1012, 13);
+INSERT INTO vacunatoriovacuna VALUES (1012, 14);
+
+INSERT INTO persona VALUES (53270569, 6, 'Salma', '26/07/1978', 091451233, 'Salma@gmail.com');
+INSERT INTO persona VALUES (7690777, 6, 'Ion', '10/06/1985', 099278927, 'Ion@gmail.com');
+INSERT INTO persona VALUES (2982751, 6, 'Camila', '12/10/1994', 091118428, 'Camila@gmail.com');
+INSERT INTO persona VALUES (2123451, 6, 'Joaquin', '12/10/1994', 091128428, 'Joaquin@gmail.com');
+INSERT INTO persona VALUES (21704637, 7, 'Coral', '26/06/1996', 099298898, 'Coral@gmail.com');
+INSERT INTO persona VALUES (61661047, 7, 'Maria-Ester', '24/05/1962', 091234223, 'Maria@gmail.com');
+INSERT INTO persona VALUES (88697281, 7, 'Celso', '28/12/1991', 091232389, 'Celso@gmail.com');
+INSERT INTO persona VALUES (61151765, 8, 'Emiliano', '13/07/2001', 092111235, 'Emiliano@gmail.com');
+INSERT INTO persona VALUES (61724168, 8, 'Esperanza', '27/03/1980', 091575398, 'Esperanza@gmail.com');
+INSERT INTO persona VALUES (88738900, 8, 'Said', '04/7/1963', 091112323, 'Said@gmail.com');
+INSERT INTO persona VALUES (53600663, 9, 'Veronica', '24/12/1964', 099169654, 'Veronica@gmail.com');
+INSERT INTO persona VALUES (27536733, 9, 'Abdellah', '28/09/1979', 092103298, 'Abdellah@gmail.com');
+INSERT INTO persona VALUES (82524597, 9, 'Jose-Maria', '18/04/1986', 099217798, 'Jose@gmail.com');
+INSERT INTO persona VALUES (20654059, 10, 'Valeriano', '03/10/2000', 091608423, 'Valeriano@gmail.com');
+INSERT INTO persona VALUES (2343961, 10, 'Salud', '09/09/1997', 099432527, 'Salud@gmail.com');
+INSERT INTO persona VALUES (31846530, 10, 'Eduardo', '10/05/1970', 099432129, 'Eduardo@gmail.com'); --
+INSERT INTO persona VALUES (41211850, 6, 'William',       '28/11/1976', 095411233, 'William@gmail.com');
+INSERT INTO persona VALUES (44513227, 6, 'Karen',          '14/05/1962', 091378927, 'Karen@gmail.com');
+INSERT INTO persona VALUES (830403, 6, 'Jesús',       '26/06/1991', 091112378, 'Jesús@gmail.com');
+INSERT INTO persona VALUES (41999048, 7, 'Carla',       '06/12/1981', 099254698, 'Carla@gmail.com');
+INSERT INTO persona VALUES (71125130, 7, 'Arantxa', '15/02/1961', 091236923, 'Arantxa@gmail.com');
+INSERT INTO persona VALUES (20549236, 7, 'Claudio',       '02/05/1971', 091437389, 'Claudio@gmail.com');
+INSERT INTO persona VALUES (36304579, 8, 'Genoveva',    '05/05/1969', 092357753, 'Genoveva@gmail.com');
+INSERT INTO persona VALUES (77632143, 8, 'Candido',   '17/07/1980', 091579518, 'Candido@gmail.com');
+INSERT INTO persona VALUES (45175771, 8, 'Tomasa',        '27/03/1994', 091319323, 'Tomasa@gmail.com');
+INSERT INTO persona VALUES (60941002, 9, 'Marc',    '18/12/1967', 099171354, 'Marc@gmail.com');
+INSERT INTO persona VALUES (74158106, 9, 'Brian',    '03/02/1997', 092131998, 'Brian@gmail.com');
+INSERT INTO persona VALUES (91041128, 9, 'Ivan',  '07/04/1983', 099215689, 'Ivan@gmail.com');
+INSERT INTO persona VALUES (41465598, 10, 'Asuncion',  '20/01/1975', 091608789, 'Asuncion@gmail.com');
+INSERT INTO persona VALUES (7330739, 10, 'Montse',       '24/09/1988', 099432123, 'Montse@gmail.com');
+INSERT INTO persona VALUES (92015364, 10, 'Delia',    '22/07/1982', 091892129, 'Delia@gmail.com');
+
+INSERT INTO solicitud VALUES (16, '14/05/2021', 53270569, 'Agendada', 9, 1010, 'Whatsapp', '24/05/2021');
+INSERT INTO solicitud VALUES (17, '19/01/2021', 7690777, 'Finalizada', 9, 1011, 'Whatsapp', '29/01/2021');
+INSERT INTO solicitud VALUES (18, '17/08/2020', 2982751, 'Finalizada', 10, 1011, 'Web', '29/08/2020');
+INSERT INTO solicitud VALUES (71, '17/08/2020', 2123451, 'Finalizada', 10, 1011, 'Web', '29/08/2020');
+INSERT INTO solicitud VALUES (19, '08/01/2021', 21704637, 'Agendada', 10, 1012, 'Whatsapp', '28/01/2021');
+INSERT INTO solicitud VALUES (20, '19/10/2020', 61661047, 'Agendada', 11, 1010, 'Web', '28/10/2020');
+INSERT INTO solicitud VALUES (21, '01/09/2021', 88697281, 'Finalizada', 11, 1010, 'Telefonica', '21/09/2021');
+INSERT INTO solicitud VALUES (22, '28/01/2021', 61151765, 'Cancelada', 12, 1011, 'Web', '18/02/2021');
+INSERT INTO solicitud VALUES (23, '07/07/2021', 61724168, 'Finalizada', 12, 1010, 'Whatsapp', '27/07/2021');
+INSERT INTO solicitud VALUES (24, '04/10/2021', 88738900, 'Finalizada', 13, 1012, 'Web', '24/10/2021');
+INSERT INTO solicitud VALUES (25, '30/05/2020', 53600663, 'Cancelada', 13, 1012, 'Telefonica', '20/06/2020');
+INSERT INTO solicitud VALUES (26, '18/08/2021', 27536733, 'Pendiente', 14, 1012, 'Web', NULL);
+INSERT INTO solicitud VALUES (27, '15/12/2021', 82524597, 'Pendiente', 14, 1012, 'Whatsapp', NULL);
+INSERT INTO solicitud VALUES (28, '16/10/2021', 20654059, 'Finalizada', 9, 1012, 'Web', '06/11/2021');
+INSERT INTO solicitud VALUES (29, '14/09/2021', 2343961, 'Finalizada', 10, 1011, 'Telefonica', '04/10/2021');
+INSERT INTO solicitud VALUES (30, '24/05/2021', 31846530, 'Finalizada', 11, 1010, 'Web', '30/05/2021'); --
+INSERT INTO solicitud VALUES (31, '10/01/2021', 41211850, 'Agendada', 9, 1010, 'Whatsapp', '30/01/2021');
+INSERT INTO solicitud VALUES (32, '14/03/2021', 44513227, 'Finalizada', 9, 1011, 'Whatsapp', '29/03/2021');
+INSERT INTO solicitud VALUES (33, '16/12/2021', 830403, 'Finalizada', 10, 1011, 'Web', '26/12/2021');
+INSERT INTO solicitud VALUES (34, '26/07/2021', 41999048, 'Agendada', 10, 1012, 'Whatsapp', '26/08/2021');
+INSERT INTO solicitud VALUES (35, '24/12/2020', 71125130, 'Agendada', 11, 1010, 'Web', '10/01/2021');
+INSERT INTO solicitud VALUES (36, '17/06/2020', 20549236, 'Finalizada', 11, 1010, 'Telefonica', '01/07/2020');
+INSERT INTO solicitud VALUES (37, '17/10/2020', 36304579, 'Cancelada', 12, 1011, 'Web', '30/10/2020');
+INSERT INTO solicitud VALUES (38, '30/12/2021', 77632143, 'Finalizada', 12, 1010, 'Whatsapp', '10/01/2022');
+INSERT INTO solicitud VALUES (39, '23/02/2021', 45175771, 'Finalizada', 13, 1012, 'Web', '10/03/2021');
+INSERT INTO solicitud VALUES (40, '06/06/2021', 60941002, 'Cancelada', 13, 1012, 'Telefonica', '26/06/2021');
+INSERT INTO solicitud VALUES (41, '20/09/2021', 74158106, 'Pendiente', 14, 1012, 'Web', NULL);
+INSERT INTO solicitud VALUES (45, '10/08/2021', 91041128, 'Finalizada', 11, 1010, 'Web', '30/08/2021');
+INSERT INTO solicitud VALUES (42, '14/05/2021', 41465598, 'Pendiente', 14, 1012, 'Whatsapp', NULL);
+INSERT INTO solicitud VALUES (43, '07/08/2021', 7330739, 'Finalizada', 9, 1012, 'Web', '29/05/2021');
+INSERT INTO solicitud VALUES (44, '29/04/2021', 92015364, 'Finalizada', 10, 1012, 'Telefonica', '15/05/2021');
+
+
+
+
+
+/* INSERTS EJERCICIO 5 */
+/*
+    Obtener las localidades que tengan a todos los ciudadanos que hayan solicitado vacunarse y
+    cuya fecha de nacimiento sea entre el 01/01/1991 y el 31/12/1996 con estado de solicitud
+    Finalizada. 
+*/
+
+INSERT INTO localidad VALUES (11,'Soriano');
+INSERT INTO localidad VALUES (12,'Flores');
+INSERT INTO localidad VALUES (13,'Durazno');
+INSERT INTO localidad VALUES (14,'Florida');
+INSERT INTO localidad VALUES (15,'Rivera');
+
+/* YA INSERTADAS
+INSERT INTO tipovacuna VALUES (1010, 'PFZ');
+INSERT INTO tipovacuna VALUES (1011, 'ASZ');
+INSERT INTO tipovacuna VALUES (1012, 'SVC');
+*/
+
+INSERT INTO vacunatorio VALUES (15, 'Hospital Español 2', 11);
+INSERT INTO vacunatorio VALUES (16, 'Hospital Italiano 2', 11);
+INSERT INTO vacunatorio VALUES (17, 'Hospital Saint Bois 2', 12);
+INSERT INTO vacunatorio VALUES (18, 'Hospital de Clínicas 3', 13);
+INSERT INTO vacunatorio VALUES (19, 'Sanatorio Médico Villa Carmen 2', 14);
+INSERT INTO vacunatorio VALUES (20, 'Medica Uruguaya 5', 15);
+
+INSERT INTO vacunatoriovacuna VALUES (1010, 15);
+INSERT INTO vacunatoriovacuna VALUES (1011, 15);
+INSERT INTO vacunatoriovacuna VALUES (1012, 16);
+INSERT INTO vacunatoriovacuna VALUES (1011, 16);
+INSERT INTO vacunatoriovacuna VALUES (1012, 17);
+INSERT INTO vacunatoriovacuna VALUES (1010, 17);
+INSERT INTO vacunatoriovacuna VALUES (1010, 18);
+INSERT INTO vacunatoriovacuna VALUES (1011, 19);
+INSERT INTO vacunatoriovacuna VALUES (1012, 19);
+INSERT INTO vacunatoriovacuna VALUES (1012, 20);
+
+INSERT INTO persona VALUES (29926978, 11, 'Maria-Cecilia',      '07/05/1995', 091111133, 'Maria@gmail.com');
+INSERT INTO persona VALUES (34128086, 11, 'Gustavo',            '26/07/1993', 099272227, 'Gustavo@gmail.com');
+INSERT INTO persona VALUES (60607638, 11, 'Melania',            '10/04/1993', 099432111, 'Melania@gmail.com'); --
+INSERT INTO persona VALUES (93327516, 11, 'Triana',             '03/12/1995', 095411333, 'Triana@gmail.com');
+
+INSERT INTO persona VALUES (40628892, 12, 'Sandra',             '04/06/1975', 091113328, 'Sandra@gmail.com');
+INSERT INTO persona VALUES (91859862, 12, 'Cintia',             '04/04/1979', 099212398, 'Cintia@gmail.com');
+INSERT INTO persona VALUES (42396211, 12, 'Ona',                '21/12/1978', 091233243, 'Ona@gmail.com');
+INSERT INTO persona VALUES (93885986, 12, 'Naiara',             '21/09/1975', 091374527, 'Naiara@gmail.com');
+INSERT INTO persona VALUES (51927683, 12, 'Vicenta',            '12/10/2001', 091117238, 'Vicenta@gmail.com');
+
+INSERT INTO persona VALUES (54123612, 13, 'Ramon',              '20/12/1988', 091232489, 'Ramon@gmail.com');
+INSERT INTO persona VALUES (61782475, 14, 'Elizabeth',          '28/09/1997', 092113235, 'Elizabeth@gmail.com');
+INSERT INTO persona VALUES (40245763, 14, 'Virtudes',           '21/11/1991', 091571298, 'Virtudes@gmail.com');
+INSERT INTO persona VALUES (15091753, 14, 'Pilar',              '16/02/1968', 091113213, 'Pilar@gmail.com');
+INSERT INTO persona VALUES (79497735, 14, 'Imanol',             '22/07/1988', 099169984, 'Imanol@gmail.com');
+INSERT INTO persona VALUES (13919224, 15, 'Laura',              '26/06/1992', 092103098, 'Laura@gmail.com');
+INSERT INTO persona VALUES (56353093, 15, 'Ander',              '08/05/1993', 099217008, 'Ander@gmail.com');
+INSERT INTO persona VALUES (24193722, 15, 'Manolo',             '28/06/1994', 091676423, 'Manolo@gmail.com');
+INSERT INTO persona VALUES (95877789, 15, 'Jose-Andres',        '06/09/1995', 099432195, 'Jose@gmail.com');
+
+INSERT INTO persona VALUES (40550897, 13, 'Leyre',              '12/08/1983', 099254548, 'Leyre@gmail.com');
+INSERT INTO persona VALUES (74466533, 13, 'Teodoro',            '06/03/1998', 091236323, 'Teodoro@gmail.com');
+INSERT INTO persona VALUES (70956683, 13, 'Maria-Fernanda',     '27/03/1990', 091437659, 'Maria@gmail.com');
+INSERT INTO persona VALUES (66643721, 14, 'Eneko',              '14/09/1990', 092357654, 'Eneko@gmail.com');
+INSERT INTO persona VALUES (65047990, 14, 'Nahia',              '22/12/1991', 091577645, 'Nahia@gmail.com');
+INSERT INTO persona VALUES (86344850, 14, 'Casimiro',           '24/08/1996', 091319745, 'Casimiro@gmail.com');
+INSERT INTO persona VALUES (84263353, 14, 'Felipa',             '11/05/1960', 099171943, 'Felipa@gmail.com');
+
+-- Personas de localidad 11 con todas las finalizadas.
+INSERT INTO solicitud VALUES (46, '14/05/2021', 29926978, 'Finalizada', 15, 1010, 'Whatsapp', '24/05/2021');
+INSERT INTO solicitud VALUES (47, '19/01/2021', 34128086, 'Finalizada', 15, 1011, 'Whatsapp', '29/01/2021');
+INSERT INTO solicitud VALUES (48, '17/08/2020', 60607638, 'Finalizada', 15, 1011, 'Web', '29/08/2020');
+INSERT INTO solicitud VALUES (49, '08/01/2021', 93327516, 'Finalizada', 15, 1011, 'Whatsapp', '28/01/2021');
+
+-- Personas de localidad 15 pero una tiene agendada.
+INSERT INTO solicitud VALUES (58, '16/10/2021', 13919224, 'Finalizada', 20, 1012, 'Web', '06/11/2021');
+INSERT INTO solicitud VALUES (59, '14/09/2021', 56353093, 'Finalizada', 20, 1012, 'Telefonica', '04/10/2021');
+INSERT INTO solicitud VALUES (60, '24/05/2021', 24193722, 'Finalizada', 20, 1012, 'Web', '30/05/2021'); --
+INSERT INTO solicitud VALUES (61, '10/01/2021', 95877789, 'Agendada', 20, 1012, 'Whatsapp', '30/01/2021');
+
+-- Personas de localidad 12 todos con solicitud finalizada pero no todos nacieron entre el 91 y el 96.
+INSERT INTO solicitud VALUES (50, '19/10/2020', 40628892, 'Finalizada', 17, 1010, 'Web', '28/10/2020');
+INSERT INTO solicitud VALUES (51, '01/09/2021', 91859862, 'Finalizada', 17, 1010, 'Telefonica', '21/09/2021');
+INSERT INTO solicitud VALUES (52, '28/01/2021', 42396211, 'Finalizada', 17, 1012, 'Web', '18/02/2021');
+INSERT INTO solicitud VALUES (62, '14/03/2021', 51927683, 'Finalizada', 17, 1010, 'Whatsapp', '29/03/2021');
+INSERT INTO solicitud VALUES (70, '08/01/2021', 93885986, 'Finalizada', 17, 1012, 'Whatsapp', '28/01/2021');
+
+INSERT INTO solicitud VALUES (53, '07/07/2021', 54123612, 'Finalizada', 18, 1010, 'Whatsapp', '27/07/2021');
+INSERT INTO solicitud VALUES (67, '17/10/2020', 65047990, 'Cancelada', 18, 1010, 'Web', '30/10/2020');
+INSERT INTO solicitud VALUES (68, '30/12/2021', 86344850, 'Finalizada', 18, 1010, 'Whatsapp', '10/01/2022');
+INSERT INTO solicitud VALUES (63, '16/12/2021', 40550897, 'Finalizada', 18, 1010, 'Web', '26/12/2021');
+INSERT INTO solicitud VALUES (64, '26/07/2021', 74466533, 'Agendada', 18, 1010, 'Whatsapp', '26/08/2021');
+INSERT INTO solicitud VALUES (65, '24/12/2020', 70956683, 'Agendada', 18, 1010, 'Web', '10/01/2021');
+
+INSERT INTO solicitud VALUES (54, '04/10/2021', 61782475, 'Finalizada', 19, 1012, 'Web', '24/10/2021');
+INSERT INTO solicitud VALUES (55, '30/05/2020', 40245763, 'Cancelada', 19, 1012, 'Telefonica', '20/06/2020');
+INSERT INTO solicitud VALUES (66, '17/06/2020', 66643721, 'Finalizada', 19, 1011, 'Telefonica', '01/07/2020');
+INSERT INTO solicitud VALUES (69, '23/02/2021', 84263353, 'Finalizada', 19, 1012, 'Web', '10/03/2021');
+INSERT INTO solicitud VALUES (56, '18/08/2021', 15091753, 'Pendiente', 19, 1011, 'Web', NULL);
+
+
+
+
+
+/* INSERTS EJERCICIO 10 */
+/*
+    Obtener para cada tipo de vacuna la cantidad total de solicitudes por vía de solicitud. Obtener
+    el porcentaje que representan estas cantidades sobre el total general de solicitudes. Además,
+    obtener el nombre del vacunatorio donde se realizaron la mayor cantidad de solicitudes del
+    tipo de vacuna asociado.
+*/
+
+INSERT INTO localidad VALUES (16,'San José');
+INSERT INTO localidad VALUES (17,'Treinta y Tres');
+INSERT INTO localidad VALUES (18,'Lavalleja');
+INSERT INTO localidad VALUES (19,'Río Negro');
+
+INSERT INTO tipovacuna VALUES (1010, 'PFZ');
+INSERT INTO tipovacuna VALUES (1011, 'ASZ');
+INSERT INTO tipovacuna VALUES (1012, 'SVC');
+
+
+INSERT INTO vacunatorio VALUES (21, 'Hospital Español 3', 16);
+INSERT INTO vacunatorio VALUES (22, 'Hospital Italiano 3', 17);
+INSERT INTO vacunatorio VALUES (23, 'Hospital Saint Bois 3', 18);
+INSERT INTO vacunatorio VALUES (24, 'Hospital de Clínicas 4', 19);
+
+INSERT INTO vacunatoriovacuna VALUES (1010, 21);
+INSERT INTO vacunatoriovacuna VALUES (1011, 21);
+INSERT INTO vacunatoriovacuna VALUES (1012, 22);
+INSERT INTO vacunatoriovacuna VALUES (1011, 22);
+INSERT INTO vacunatoriovacuna VALUES (1012, 23);
+INSERT INTO vacunatoriovacuna VALUES (1010, 24);
+
+INSERT INTO persona VALUES (98763985, 16, 'Roman',              '26/07/1960', 091234133, 'Roman@gmail.com');
+INSERT INTO persona VALUES (12629731, 16, 'Rosa',               '04/02/1992', 099212327, 'Rosa@gmail.com');
+INSERT INTO persona VALUES (30438019, 16, 'Carme',              '27/02/1994', 099443211, 'Carme@gmail.com');
+INSERT INTO persona VALUES (21484895, 16, 'Ioan',               '06/05/1999', 095423433, 'Ioan@gmail.com');
+INSERT INTO persona VALUES (10359146, 16, 'Celso',              '24/05/1975', 091115678, 'Celso@gmail.com');
+INSERT INTO persona VALUES (97143152, 16, 'Rachida',            '18/03/1985', 099217898, 'Rachida@gmail.com');
+INSERT INTO persona VALUES (64469327, 17, 'Fuensanta',          '28/05/1974', 091226943, 'Fuensanta@gmail.com');
+INSERT INTO persona VALUES (29177896, 17, 'Nil',                '18/01/1962', 091379537, 'Nil@gmail.com');
+INSERT INTO persona VALUES (45137153, 17, 'Pelayo',             '22/04/1993', 091117898, 'Pelayo@gmail.com');
+INSERT INTO persona VALUES (84213223, 18, 'Alain',              '29/12/1998', 091203089, 'Alain@gmail.com');
+INSERT INTO persona VALUES (78263064, 18, 'Malika',             '13/09/1972', 092110022, 'Malika@gmail.com');
+INSERT INTO persona VALUES (98607282, 18, 'Dulce',              '25/11/1967', 091571123, 'Dulce@gmail.com');
+INSERT INTO persona VALUES (20869523, 19, 'Irina',              '28/05/1993', 091113433, 'Irina@gmail.com');
+INSERT INTO persona VALUES (67794795, 19, 'Candelaria',         '16/10/1982', 099169544, 'Candelaria@gmail.com');
+INSERT INTO persona VALUES (44652738, 19, 'Iciar',              '24/01/1980', 092103067, 'Iciar@gmail.com');
+INSERT INTO persona VALUES (16510342, 16, 'Estefania',          '16/12/1989', 099218768, 'Estefania@gmail.com');
+INSERT INTO persona VALUES (22541941, 16, 'Dylan',              '26/03/1978', 091656723, 'Dylan@gmail.com');
+INSERT INTO persona VALUES (24169670, 16, 'Nayra',              '09/07/1975', 099409895, 'Nayra@gmail.com');
+
+INSERT INTO solicitud VALUES (72, '16/06/2021', 98763985, 'Agendada', 21, 1010, 'Whatsapp', '26/06/2021');
+INSERT INTO solicitud VALUES (73, '25/01/2021', 12629731, 'Finalizada', 21, 1011, 'Whatsapp', '29/01/2021');
+INSERT INTO solicitud VALUES (74, '20/08/2020', 30438019, 'Pendiente', 21, 1011, 'Web', NULL);
+INSERT INTO solicitud VALUES (75, '18/01/2021', 10359146, 'Pendiente', 21, 1011, 'Whatsapp', NULL);
+INSERT INTO solicitud VALUES (76, '20/10/2021', 97143152, 'Agendada', 21, 1010, 'Web', '26/11/2021');
+INSERT INTO solicitud VALUES (77, '25/09/2021', 64469327, 'Cancelada', 22, 1012, 'Telefonica', '15/11/2021');
+INSERT INTO solicitud VALUES (78, '05/06/2021', 29177896, 'Agendada', 22, 1011, 'Web', '25/06/2021'); --
+INSERT INTO solicitud VALUES (79, '10/01/2021', 45137153, 'Agendada', 22, 1012, 'Whatsapp', '30/01/2021');
+INSERT INTO solicitud VALUES (80, '19/10/2020', 84213223, 'Cancelada', 23, 1012, 'Web', '28/10/2020');
+INSERT INTO solicitud VALUES (81, '05/09/2021', 78263064, 'Agendada', 23, 1012, 'Telefonica', '25/09/2021');
+INSERT INTO solicitud VALUES (82, '28/02/2021', 98607282, 'Finalizada', 23, 1012, 'Web', '18/03/2021');
+INSERT INTO solicitud VALUES (83, '14/04/2021', 20869523, 'Agendada', 23, 1012, 'Whatsapp', '29/04/2021');
+INSERT INTO solicitud VALUES (84, '08/10/2021', 67794795, 'Finalizada', 24, 1010, 'Whatsapp', '28/10/2021');
+INSERT INTO solicitud VALUES (85, '15/07/2021', 44652738, 'Finalizada', 24, 1010, 'Whatsapp', '27/07/2021');
+INSERT INTO solicitud VALUES (86, '17/10/2020', 16510342, 'Cancelada', 24, 1010, 'Web', '30/10/2020');
+INSERT INTO solicitud VALUES (87, '30/12/2021', 22541941, 'Finalizada', 24, 1010, 'Whatsapp', '10/01/2022');
+INSERT INTO solicitud VALUES (88, '16/12/2021', 24169670, 'Pendiente', 24, 1010, 'Web', NULL);
